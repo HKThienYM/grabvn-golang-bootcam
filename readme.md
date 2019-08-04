@@ -1,1 +1,1 @@
-grabvn golang bootcamp
+protoc .\feedbackService\pb\feedback.proto --go_out=plugins=grpc:.
