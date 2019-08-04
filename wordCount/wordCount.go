@@ -38,7 +38,7 @@ func ListAllTxt(pathToFolder string) []string {
 	return files
 }
 
-// readFile return the context of file
+// readFile return the content of file
 func readFile(pathToFile string) string {
 	data, err := ioutil.ReadFile(pathToFile)
 	if err != nil {
@@ -48,7 +48,7 @@ func readFile(pathToFile string) string {
 	return string(data)
 }
 
-// wordCount count exit words in the file
+// wordCount count exist words in the file
 func wordCount(pathToFile string) map[string]int {
 	context := readFile(pathToFile)
 	listWords := strings.Split(context, " ")
