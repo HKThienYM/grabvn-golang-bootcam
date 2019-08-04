@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package feedback;
+
+service PassengerFeedback {
+    rpc AddFb(Feedback) returns (AddFbkResponse);
+    rpc GetFbByPasId(PassengerId) returns (ListOfFeedback);
+    rpc GetFbByBookingCode(BookingCode) returns (Feedback);
+    rpc DeleteByPasId(PassengerId) returns (DeleteByPasIdResponse);
+}
+
+message PassengerId{
+    int32 passengerId = 1;
+}
+
+message BookingCode {
+    string bookingCode = 1;
+}
+
+message Feedback {
+    string bookingCode = 1;
+    int32 passengerId = 2;
+    string feedback = 3;
+}
+
+message ListOfFeedback {
+    repeated Feedback listOfFeedback = 1;
+}
+
+message AddFbkResponse{
+    string bookingCode = 1;
+    int32 passengerId = 2;
+}
+
+message DeleteByPasIdResponse{
+    int32 numberOfFbDeleted = 1;
+} 
